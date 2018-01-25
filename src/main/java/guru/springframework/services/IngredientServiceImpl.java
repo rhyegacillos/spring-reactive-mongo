@@ -137,7 +137,7 @@ public class IngredientServiceImpl implements IngredientService {
 
         log.debug("Deleting ingredient: " + recipeId + ":" + idToDelete);
 
-        Recipe recipReactive = recipeReactiveRepository.findById(recipeId).block();
+//        Recipe recipReactive = recipeReactiveRepository.findById(recipeId).block();
         Recipe recipe = recipeRepository.findById(recipeId).get();
 
         if(recipe != null){
