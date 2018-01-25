@@ -50,8 +50,11 @@ public class IngredientServiceImpl implements IngredientService {
     }
 
     @Override
-    @Transactional
     public Mono<IngredientCommand> saveIngredientCommand(IngredientCommand command) {
+        log.error("Ingredient recipe id: " + command.getRecipeId());
+        log.error("Ingredient ingredient id : " + command.getId());
+        log.error("Ingredient description id: " + command.getDescription());
+        log.error("Ingredient amount : " + command.getAmount());
         Recipe recipe = recipeReactiveRepository.findById(command.getRecipeId()).block();
 
         if (recipe == null) {
