@@ -62,7 +62,6 @@ public class IngredientController {
         //make sure we have a good id value
         RecipeCommand recipeCommand = recipeService.findCommandById(recipeId).block();
         //todo raise exception if null
-
         //need to return back parent id for hidden form property
         IngredientCommand ingredientCommand = new IngredientCommand();
 
@@ -70,9 +69,9 @@ public class IngredientController {
 
         //init uom
         ingredientCommand.setUom(new UnitOfMeasureCommand());
-//        ingredientCommand.setRecipeId(recipeId);
-//        Ingredient ingredient = new Ingredient();
-//        ingredientCommand.setId(ingredient.getId());
+        ingredientCommand.setRecipeId(recipeId);
+        Ingredient ingredient = new Ingredient();
+        ingredientCommand.setId(ingredient.getId());
         return "recipe/ingredient/ingredientform";
     }
 
